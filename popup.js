@@ -16,12 +16,7 @@ const addToClipBoard = () => {
 const getUrlParam = () => {
   chrome.tabs.getSelected(null, function(tab) {
     let { url = '' } = tab;
-    const fieldParam = document.getElementById('urlParam');
     const output = document.getElementById('output');
-
-    // const url_string = "http://www.example.com/t.html?a=1&b=3&c=m2-m3-m4-m5"; //window.location.href
-    // const test_url = new URL(url_string);
-    // const c = test_url.searchParams.get("c");
 
     if(url.indexOf("?") > 0) {
     } else {
@@ -29,9 +24,14 @@ const getUrlParam = () => {
     }
   
     const test_url = new URL(url);
-    const c = test_url.searchParams.get(fieldParam.value);
+    const id = test_url.searchParams.get('id');
+    const sub = test_url.searchParams.get('sub');
 
-    output.value=(c);
+    console.log(url);
+    console.log(test_url);
+    console.log(id, sub);
+
+    output.value=(`${id}&sub=${sub}`);
     // addToClipBoard();
   });
 }
