@@ -18,18 +18,13 @@ const getUrlParam = () => {
     let { url = '' } = tab;
     const output = document.getElementById('output');
 
-    if(url.indexOf("?") > 0) {
-    } else {
-      url.replace('#', '?');
-    }
+    const parsedUrl = (url.indexOf("?") > 0)
+      ? url
+      : url.replace('#', '?');
   
-    const test_url = new URL(url);
-    const id = test_url.searchParams.get('id');
-    const sub = test_url.searchParams.get('sub');
-
-    console.log(url);
-    console.log(test_url);
-    console.log(id, sub);
+    const test_url = new URL(parsedUrl);
+    const id = test_url.searchParams.get('id') || '';
+    const sub = test_url.searchParams.get('sub') || '';
 
     output.value=(`${id}&sub=${sub}`);
     // addToClipBoard();
