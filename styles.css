@@ -1,3 +1,50 @@
+:root {
+  --color-main: #a2c2ff;
+  --color-main-dark: #5173f9;
+
+  --border-radius: 8px;
+}
+
+body {
+  width: 200px;
+}
+h1 {
+  font-size: 16px;
+  color: var(--color-main-dark);
+}
+label {
+  display: block;
+  margin: 0 0 4px;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--color-main-dark);
+}
 button {
-  color: red;
+  padding: .4em;
+  background: var(--color-main);
+  border-radius: var(--border-radius);
+  border: none;
+  width: 100%;
+  outline: none;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+}
+button:hover {
+  background: var(--color-main-dark);
+}
+
+input {
+  box-sizing: border-box;
+  padding: 6px 12px;
+  width: 100%;
+  border: solid 1px var(--color-main);
+  border-radius: var(--border-radius);
+  outline: none;
+  transition: border-color 0.4s ease;
+}
+input:focus,
+input:active,
+input:hover {
+  border-color: var(--color-main-dark);
 }
