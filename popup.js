@@ -10,13 +10,13 @@ const addToClipBoard = () => {
   copyText.select();
   copyText.setSelectionRange(0, 99999)
   document.execCommand("copy");
-  alert("Copied the text: " + copyText.value);
 };
 
 const getUrlParam = () => {
   chrome.tabs.getSelected(null, function(tab) {
     let { url = '' } = tab;
     const output = document.getElementById('output');
+    const btn = document.getElementById('checkPage');
 
     const parsedUrl = (url.indexOf("?") > 0)
       ? url
@@ -27,6 +27,7 @@ const getUrlParam = () => {
     const sub = test_url.searchParams.get('sub') || '';
 
     output.value=(`${id}&sub=${sub}`);
-    // addToClipBoard();
+    btn.innerHTML = 'Copied!!!!'
+    addToClipBoard();
   });
 }
